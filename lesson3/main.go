@@ -2,20 +2,22 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
 	var (
-		first  float32
-		second float32
-		total  int64
+		login string
+		email string
 	)
 
-	fmt.Scan(&first, &second)
-	total = int64(first + second)
-	if total%2.0 == 0 {
-		fmt.Println("ЧЁТНОЕ")
+	fmt.Scan(&login, &email)
+	if len(login) < 10 || strings.Contains(login, "@") {
+		fmt.Println("Некорректный логин")
+	} else if !strings.Contains(email, "@") || !strings.Contains(email, ".") {
+		fmt.Println("Некорректная почта")
 	} else {
-		fmt.Println("НЕЧЁТНОЕ")
+		fmt.Println("ОК")
 	}
+
 }
